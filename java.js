@@ -1,5 +1,6 @@
 function isNumber(value) {
-    return !isNaN(value) && value !== null && value !== '';
+    const number = Number(value);
+    return Number.isInteger(number) && number > 0;
 }
 
 function getFibonacciSeries(n) {
@@ -21,13 +22,13 @@ function requestNumber() {
     do {
         input = prompt("Ingrese un número:");
         if (!isNumber(input)) {
-          alert("Error: ingrese un número válido.")
+            alert("Por favor, ingrese un número válido.");
         }
-     
     } while (!isNumber(input));
 
     return parseInt(input);
 }
+
 function displayFibonacciSeries() {
     const number = requestNumber();
     const fibSeries = getFibonacciSeries(number);
@@ -40,3 +41,4 @@ function displayFibonacciSeries() {
 window.onload = function() {
     displayFibonacciSeries();
 };
+
